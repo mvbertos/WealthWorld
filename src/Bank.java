@@ -1,0 +1,18 @@
+public class Bank {
+
+    private int coins = 0;
+
+    public int getCoins() {
+        return coins;
+    }
+
+    public void StoreCoins(int coins){
+        this.coins += coins;
+        System.out.println("Bob addded to his bank acount:"+coins+"\nNow he have:"+this.coins);
+    }
+    
+    public  void RemoveCoins(int coins){
+        this.coins -= coins;
+        System.out.println("Bob used:"+coins+"\n Now he have:"+this.coins);
+    }
+}
