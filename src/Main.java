@@ -3,15 +3,14 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner scr = new Scanner(System.in);
-        Bob bob = new Bob(10,0,10);
+        Bob bob = new Bob();
 
         //HERE BOB THE HIS THING
         while(true) {
-            bob.ExecuteStep();
-            scr.next();
+            bob.getState().execute(bob);
+            Thread.sleep(300);
         }
     }
-
 }
