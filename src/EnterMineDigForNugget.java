@@ -2,6 +2,19 @@ import java.util.Random;
 
 public class EnterMineDigForNugget implements State {
 
+    private static EnterMineDigForNugget instance = null;
+
+    private EnterMineDigForNugget() {
+
+    }
+
+    public static EnterMineDigForNugget getInstance() {
+        if (instance == null) {
+            instance = new EnterMineDigForNugget();
+        }
+        return instance;
+    }
+
     @Override
     public void enter(Bob bob) {
 
@@ -23,11 +36,11 @@ public class EnterMineDigForNugget implements State {
 
         // check
         if (bob.isFullOfCoin() == true) { // pock is full
-            bob.changeState(new VisitBankForGold());
-        } else if (bob.getThirst() <= 0) { // is thirsty
-            bob.changeState(new QuenchyThirsty());
-        } else if (bob.getStamina() <= 0) {
-            bob.changeState(new GoHomeAndSleepTillRested());
+            bob.changeState(VisitBankForGold.getInstance());
+        } else if (bob.isThirsty()) { // is thirsty
+            bob.changeState(QuenchyThirsty.getInstance());
+        } else if (bob.isTired()) {
+            bob.changeState(GoHomeAndSleepTillRested.getInstance());
         }
     }
 

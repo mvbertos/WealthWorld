@@ -1,4 +1,17 @@
 public class QuenchyThirsty implements State {
+    private static QuenchyThirsty instance;
+
+    private QuenchyThirsty() {
+
+    }
+
+    public static QuenchyThirsty getInstance() {
+        if (instance == null) {
+            instance = new QuenchyThirsty();
+        }
+        return instance;
+    }
+
     @Override
     public void enter(Bob bob) {
 
@@ -10,7 +23,7 @@ public class QuenchyThirsty implements State {
         bob.increaseThirsty(2);
 
         if (bob.getThirst() >= bob.getMaxThirsty()) {
-            bob.changeState(new EnterMineDigForNugget());
+            bob.changeState(EnterMineDigForNugget.getInstance());
         }
     }
 

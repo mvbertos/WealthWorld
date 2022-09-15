@@ -47,7 +47,7 @@ public class Bob {
     public Bob() {
         bank = new Bank();
         scn = new Scanner(System.in);
-        state = new EnterMineDigForNugget();
+        state = EnterMineDigForNugget.getInstance();
     }
 
     public void changeState(State state) {
@@ -83,6 +83,10 @@ public class Bob {
         thirsty += value;
     }
 
+    public boolean isThirsty() {
+        return thirsty <= 0;
+    }
+
     // REST
     public void reduceStamina(int value) {
         stamina -= value;
@@ -90,5 +94,9 @@ public class Bob {
 
     public void increaseStamina(int value) {
         stamina += value;
+    }
+
+    public boolean isTired() {
+        return stamina <= 0;
     }
 }
