@@ -5,55 +5,90 @@ public class Bob {
     private Scanner scn;
     private State state;
 
-    //BOB ATTRIBUTES
-    private int stamina;
-    private int wealth;
-    private int thirst;
+    // BOB ATTRIBUTES
+    private int stamina = 10;
+    private int maxStamina = 10;
+    private int maxThirsty = 10;
+    private int thirsty = 10;
+    private int coinMax = 10;
+    private int coin;
+    private int coinpermine = 1;
 
+    // GETTERS
 
     public State getState() {
         return state;
     }
+
     public int getStamina() {
         return stamina;
     }
 
-    public void setStamina(int stamina) {
-        this.stamina = stamina;
-    }
-
-    public int getWealth() {
-        return wealth;
-    }
-
-    public void setWealth(int wealth) {
-        this.wealth = wealth;
+    public int getMaxStamina() {
+        return maxStamina;
     }
 
     public int getThirst() {
-        return thirst;
+        return thirsty;
     }
 
-    public void setThirst(int thirst) {
-        this.thirst = thirst;
+    public int getMaxThirsty() {
+        return maxThirsty;
     }
 
-    public void CallBob(){
+    public int getCoin() {
+        return coin;
+    }
+
+    public void CallBob() {
         System.out.println("Hello World");
     }
 
     public Bob() {
-        this.stamina = 0;
-        this.wealth = 0;
-        this.thirst = 0;
         bank = new Bank();
         scn = new Scanner(System.in);
         state = new EnterMineDigForNugget();
     }
 
-    public void changeState(State state){
+    public void changeState(State state) {
         this.state.exit(this);
         this.state = state;
         this.state.enter(this);
+    }
+
+    // COIN
+    public void increaseCoinBasedOnBob() {
+        increaseCoin(coinpermine);
+    }
+
+    public void increaseCoin(int value) {
+        coin += value;
+    }
+
+    public Boolean isFullOfCoin() {
+        return coin >= coinMax;
+    }
+
+    public void bankCoins() {
+        bank.storeCoins(coin);
+        coin = 0;
+    }
+
+    // WEALTH
+    public void reduceThirsty(int value) {
+        thirsty -= value;
+    }
+
+    public void increaseThirsty(int value) {
+        thirsty += value;
+    }
+
+    // REST
+    public void reduceStamina(int value) {
+        stamina -= value;
+    }
+
+    public void increaseStamina(int value) {
+        stamina += value;
     }
 }

@@ -10,7 +10,7 @@ public class Main {
         //HERE BOB THE HIS THING
         while(true) {
             bob.getState().execute(bob);
-            Thread.sleep(300);
+            Thread.sleep(600);
         }
     }
 }
