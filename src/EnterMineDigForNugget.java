@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class EnterMineDigForNugget implements State<Bob> {
 
     private static EnterMineDigForNugget instance = null;
