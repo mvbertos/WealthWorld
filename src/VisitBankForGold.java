@@ -1,4 +1,4 @@
-public class VisitBankForGold implements State {
+public class VisitBankForGold implements State<Bob> {
 
     private static VisitBankForGold instance;
 
@@ -14,26 +14,22 @@ public class VisitBankForGold implements State {
     }
 
     @Override
-    public void enter(Character character) {
+    public void enter(Bob character) {
         // TODO Auto-generated method stub
 
     }
 
     @Override
-    public void execute(Character character) {
+    public void execute(Bob character) {
 
         System.out.println("Bob whent to the bank and stored all his coins");
 
-        if (character instanceof Bob) {
-            Bob bob = (Bob) character;
-            bob.bankCoins();
-        }
-        
+        character.bankCoins();
         character.changeState(EnterMineDigForNugget.getInstance());
     }
 
     @Override
-    public void exit(Character character) {
+    public void exit(Bob character) {
         // TODO Auto-generated method stub
 
     }

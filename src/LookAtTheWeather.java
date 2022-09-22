@@ -1,4 +1,4 @@
-public class LookAtTheWeather implements State {
+public class LookAtTheWeather implements State<Billy> {
 
     private static LookAtTheWeather instance;
 
@@ -14,13 +14,13 @@ public class LookAtTheWeather implements State {
     }
 
     @Override
-    public void enter(Character character) {
+    public void enter(Billy character) {
         System.out.println("Billy stopped to look at the sky");
 
     }
 
     @Override
-    public void execute(Character character) {
+    public void execute(Billy character) {
         System.out.println("Billy is happy looking at the sky");
         if (character.getRnd().nextInt(101) > 25) {
             character.changeState(WalkAroundTheFarm.getInstance());
@@ -28,7 +28,7 @@ public class LookAtTheWeather implements State {
     }
 
     @Override
-    public void exit(Character character) {
+    public void exit(Billy character) {
         System.out.println("Billy is tired of looking at the sky");
 
     }

@@ -1,5 +1,5 @@
 
-public class GoHomeAndSleepTillRested implements State {
+public class GoHomeAndSleepTillRested implements State<Bob> {
     private static GoHomeAndSleepTillRested instance;
 
     private GoHomeAndSleepTillRested() {
@@ -14,23 +14,20 @@ public class GoHomeAndSleepTillRested implements State {
     }
 
     @Override
-    public void enter(Character character) {
+    public void enter(Bob character) {
     }
 
     @Override
-    public void execute(Character character) {
+    public void execute(Bob character) {
         System.out.println("Bob is now RESTING");
-        if (character instanceof Bob) {
-            Bob bob = (Bob) character;
-            bob.increaseStamina(1);
-            if (bob.getStamina() >= bob.getMaxStamina()) {
-                bob.changeState(EnterMineDigForNugget.getInstance());
-            }
+        character.increaseStamina(1);
+        if (character.getStamina() >= character.getMaxStamina()) {
+            character.changeState(EnterMineDigForNugget.getInstance());
         }
     }
 
     @Override
-    public void exit(Character character) {
+    public void exit(Bob character) {
         System.out.println("Bob is now RESTED");
 
     }

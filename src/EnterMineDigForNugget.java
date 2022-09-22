@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class EnterMineDigForNugget implements State {
+public class EnterMineDigForNugget implements State<Bob> {
 
     private static EnterMineDigForNugget instance = null;
 
@@ -16,40 +16,36 @@ public class EnterMineDigForNugget implements State {
     }
 
     @Override
-    public void enter(Character bob) {
+    public void enter(Bob bob) {
 
     }
 
     @Override
-    public void execute(Character character) {
-        if(character instanceof Bob){
-            Bob bob = (Bob) character;
-            Random rnd = new Random();
-    
-            // try to get some nugget
-            if (rnd.nextInt(2) != 0) {
-                System.out.println("Bob dig a nugget");
-                bob.increaseCoinBasedOnBob();
-                bob.reduceThirsty(1);
-                bob.reduceStamina(3);
-            } else {
-                System.out.println("Bob dig Nothing");
-            }
-    
-            // check
-            if (bob.isFullOfCoin() == true) { // pock is full
-                bob.changeState(VisitBankForGold.getInstance());
-            } else if (bob.isThirsty()) { // is thirsty
-                bob.changeState(QuenchyThirsty.getInstance());
-            } else if (bob.isTired()) {
-                bob.changeState(GoHomeAndSleepTillRested.getInstance());
-            }
+    public void execute(Bob character) {
+
+        // try to get some nugget
+        if (character.getRnd().nextInt(2) != 0) {
+            System.out.println("Bob dig a nugget");
+            character.increaseCoinBasedOnBob();
+            character.reduceThirsty(1);
+            character.reduceStamina(3);
+        } else {
+            System.out.println("Bob dig Nothing");
+        }
+
+        // check
+        if (character.isFullOfCoin() == true) { // pock is full
+            character.changeState(VisitBankForGold.getInstance());
+        } else if (character.isThirsty()) { // is thirsty
+            character.changeState(QuenchyThirsty.getInstance());
+        } else if (character.isTired()) {
+            character.changeState(GoHomeAndSleepTillRested.getInstance());
         }
 
     }
 
     @Override
-    public void exit(Character bob) {
+    public void exit(Bob bob) {
         System.out.println("Bob digged enough");
     }
 }

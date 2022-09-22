@@ -1,5 +1,5 @@
-public interface State {
-    public void enter(Character character);
-    public void execute(Character character);
-    public void exit(Character character);
+public interface State<NonPlayableCharacter> {
+    public void enter(NonPlayableCharacter character);
+    public void execute(NonPlayableCharacter character);
+    public void exit(NonPlayableCharacter character);
 }

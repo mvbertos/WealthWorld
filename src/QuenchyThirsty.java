@@ -1,4 +1,4 @@
-public class QuenchyThirsty implements State {
+public class QuenchyThirsty implements State<Bob> {
     private static QuenchyThirsty instance;
 
     private QuenchyThirsty() {
@@ -13,12 +13,12 @@ public class QuenchyThirsty implements State {
     }
 
     @Override
-    public void enter(Character character) {
+    public void enter(Bob character) {
 
     }
 
     @Override
-    public void execute(Character character) {
+    public void execute(Bob character) {
         System.out.println("Drank and feel better");
         if (character instanceof Bob) {
             Bob bob = (Bob) character;
@@ -31,6 +31,6 @@ public class QuenchyThirsty implements State {
     }
 
     @Override
-    public void exit(Character character) {
+    public void exit(Bob character) {
     }
 }
