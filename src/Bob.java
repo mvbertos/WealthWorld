@@ -1,9 +1,6 @@
 import java.util.Scanner;
 
-public class Bob {
-    private Bank bank;
-    private Scanner scn;
-    private State state;
+public class Bob extends Character {
 
     // BOB ATTRIBUTES
     private int stamina = 10;
@@ -15,11 +12,6 @@ public class Bob {
     private int coinpermine = 1;
 
     // GETTERS
-
-    public State getState() {
-        return state;
-    }
-
     public int getStamina() {
         return stamina;
     }
@@ -40,20 +32,9 @@ public class Bob {
         return coin;
     }
 
-    public void CallBob() {
-        System.out.println("Hello World");
-    }
-
     public Bob() {
-        bank = new Bank();
-        scn = new Scanner(System.in);
-        state = EnterMineDigForNugget.getInstance();
-    }
-
-    public void changeState(State state) {
-        this.state.exit(this);
-        this.state = state;
-        this.state.enter(this);
+        super();
+        changeState(EnterMineDigForNugget.getInstance());
     }
 
     // COIN
@@ -70,11 +51,11 @@ public class Bob {
     }
 
     public void bankCoins() {
-        bank.storeCoins(coin);
+        getBank().storeCoins(coin);
         coin = 0;
     }
 
-    // WEALTH
+    // Thirsty
     public void reduceThirsty(int value) {
         thirsty -= value;
     }

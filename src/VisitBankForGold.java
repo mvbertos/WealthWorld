@@ -14,20 +14,26 @@ public class VisitBankForGold implements State {
     }
 
     @Override
-    public void enter(Bob bob) {
+    public void enter(Character character) {
         // TODO Auto-generated method stub
 
     }
 
     @Override
-    public void execute(Bob bob) {
+    public void execute(Character character) {
+
         System.out.println("Bob whent to the bank and stored all his coins");
-        bob.bankCoins();
-        bob.changeState(EnterMineDigForNugget.getInstance());
+
+        if (character instanceof Bob) {
+            Bob bob = (Bob) character;
+            bob.bankCoins();
+        }
+        
+        character.changeState(EnterMineDigForNugget.getInstance());
     }
 
     @Override
-    public void exit(Bob bob) {
+    public void exit(Character character) {
         // TODO Auto-generated method stub
 
     }

@@ -13,21 +13,24 @@ public class QuenchyThirsty implements State {
     }
 
     @Override
-    public void enter(Bob bob) {
+    public void enter(Character character) {
 
     }
 
     @Override
-    public void execute(Bob bob) {
+    public void execute(Character character) {
         System.out.println("Drank and feel better");
-        bob.increaseThirsty(2);
+        if (character instanceof Bob) {
+            Bob bob = (Bob) character;
+            bob.increaseThirsty(2);
 
-        if (bob.getThirst() >= bob.getMaxThirsty()) {
-            bob.changeState(EnterMineDigForNugget.getInstance());
+            if (bob.getThirst() >= bob.getMaxThirsty()) {
+                bob.changeState(EnterMineDigForNugget.getInstance());
+            }
         }
     }
 
     @Override
-    public void exit(Bob bob) {
+    public void exit(Character character) {
     }
 }
