@@ -33,11 +33,11 @@ public class EnterMineDigForNugget implements State<Bob> {
 
         // check
         if (character.isFullOfCoin() == true) { // pock is full
-            character.changeState(VisitBankForGold.getInstance());
+            character.getStateMachine().changeState(VisitBankForGold.getInstance());
         } else if (character.isThirsty()) { // is thirsty
-            character.changeState(QuenchyThirsty.getInstance());
+            character.getStateMachine().changeState(QuenchyThirsty.getInstance());
         } else if (character.isTired()) {
-            character.changeState(GoHomeAndSleepTillRested.getInstance());
+            character.getStateMachine().changeState(GoHomeAndSleepTillRested.getInstance());
         }
 
     }

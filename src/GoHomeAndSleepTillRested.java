@@ -22,7 +22,7 @@ public class GoHomeAndSleepTillRested implements State<Bob> {
         System.out.println("Bob is now RESTING");
         character.increaseStamina(1);
         if (character.getStamina() >= character.getMaxStamina()) {
-            character.changeState(EnterMineDigForNugget.getInstance());
+            character.getStateMachine().changeState(EnterMineDigForNugget.getInstance());
         }
     }
 

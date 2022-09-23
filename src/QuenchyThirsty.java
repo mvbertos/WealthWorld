@@ -20,13 +20,12 @@ public class QuenchyThirsty implements State<Bob> {
     @Override
     public void execute(Bob character) {
         System.out.println("Drank and feel better");
-        if (character instanceof Bob) {
-            Bob bob = (Bob) character;
-            bob.increaseThirsty(2);
 
-            if (bob.getThirst() >= bob.getMaxThirsty()) {
-                bob.changeState(EnterMineDigForNugget.getInstance());
-            }
+        
+        character.increaseThirsty(2);
+
+        if (character.getThirst() >= character.getMaxThirsty()) {
+            character.getStateMachine().changeState(EnterMineDigForNugget.getInstance());
         }
     }
 

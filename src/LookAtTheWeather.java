@@ -23,7 +23,7 @@ public class LookAtTheWeather implements State<Billy> {
     public void execute(Billy character) {
         System.out.println("Billy is happy looking at the sky");
         if (character.getRnd().nextInt(101) > 25) {
-            character.changeState(WalkAroundTheFarm.getInstance());
+            character.getStateMachine().changeState(WalkAroundTheFarm.getInstance());
         }
     }
 

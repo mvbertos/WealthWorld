@@ -4,7 +4,8 @@ public class Bob extends Character {
 
     public Bob() {
         super();
-        changeState(EnterMineDigForNugget.getInstance());
+        getStateMachine().setCurrentState(EnterMineDigForNugget.getInstance());
+        // getStateMachine().setGlobalState();
     }
 
 }

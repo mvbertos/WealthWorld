@@ -10,6 +10,8 @@ public abstract class Character {
 
     private Random rnd;
 
+    private StateMachine stateMachine;
+
     // BOB ATTRIBUTES
     private int stamina = 10;
     private int maxStamina = 10;
@@ -23,9 +25,14 @@ public abstract class Character {
         bank = new Bank();
         scn = new Scanner(System.in);
         rnd = new Random();
+        this.stateMachine = new StateMachine<Character>(this);
     }
 
     // GETTERS
+    public StateMachine getStateMachine() {
+        return stateMachine;
+    }
+
     public int getStamina() {
         return stamina;
     }
@@ -61,16 +68,6 @@ public abstract class Character {
     public Scanner getScn() {
         return scn;
     }
-
-    public void changeState(State state) {
-        if (this.state != null) {
-            this.state.exit(this);
-        }
-
-        this.state = state;
-        state.enter(this);
-    }
-
     // COIN
     public void increaseCoinBasedOnBob() {
         increaseCoin(coinpermine);

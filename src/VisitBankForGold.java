@@ -25,7 +25,7 @@ public class VisitBankForGold implements State<Bob> {
         System.out.println("Bob whent to the bank and stored all his coins");
 
         character.bankCoins();
-        character.changeState(EnterMineDigForNugget.getInstance());
+        character.getStateMachine().changeState(EnterMineDigForNugget.getInstance());
     }
 
     @Override

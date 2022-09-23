@@ -6,8 +6,8 @@ public class Main {
 
         // HERE BOB THE HIS THING
         while (true) {
-            bob.getState().execute(bob);
-            billy.getState().execute(billy);
+            bob.getStateMachine().update();
+            billy.getStateMachine().update();
             Thread.sleep(600);
         }
     }

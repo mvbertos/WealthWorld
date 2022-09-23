@@ -21,7 +21,7 @@ public class WalkAroundTheFarm implements State<Billy> {
     public void execute(Billy character) {
         System.out.println("Billy is walking around the farm");
         if (character.getRnd().nextInt(101) > 76) {
-            character.changeState(LookAtTheWeather.getInstance());
+            character.getStateMachine().changeState(LookAtTheWeather.getInstance());
         }
 
     }
