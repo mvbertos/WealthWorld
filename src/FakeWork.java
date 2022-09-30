@@ -1,7 +1,10 @@
-public class FakeWork implements State {
+public class FakeWork implements State<Billy> {
 
     // Begin Singleton:
     private static FakeWork instance = null;
+    private int workPerTick = 1;
+    private int workProgress = 0;
+    private int workCompleted = 10;
 
     private FakeWork() {
     }
@@ -14,26 +17,26 @@ public class FakeWork implements State {
     }
 
     @Override
-    public void enter(Character character) {
+    public void enter(Billy character) {
         // TODO Auto-generated method stub
+        workProgress = 0;
 
     }
 
     @Override
-    public void execute(Character character) {
+    public void execute(Billy character) {
         // TODO Auto-generated method stub
-        System.out.println("Pretending to work... ");
-        System.out.println("I am mean working on the Farm");
+        System.out.println("Billy is pretending to work... I am mean his IS working on the Farm");
         // Faz um Rand para verificar se ele trabalhou tempo suficiente:
-        int rand = character.getRnd().nextInt(2);
-        if (rand == 1) {
-        } else {
+        workProgress += workPerTick;
+        if (workProgress >= workCompleted) {
             character.getStateMachine().changeState(LookAtTheWeather.getInstance());
         }
     }
 
     @Override
-    public void exit(Character character) {
+    public void exit(Billy character) {
+        System.out.println("Billy is done with the job!");
         MessageDispatcher.getInstance().dispatchMessage(character,
                 CharacterManager.getInstance().getCharacter("Bob"),
                 "JobsDone!", null);
@@ -41,7 +44,7 @@ public class FakeWork implements State {
     }
 
     @Override
-    public boolean onMessage(Character c, Message msg) {
+    public boolean onMessage(Billy c, Message msg) {
         // TODO Auto-generated method stub
         return false;
     }

@@ -117,7 +117,7 @@ public abstract class Character {
     }
 
     public boolean isTired() {
-        return stamina != maxStamina;
+        return stamina <= maxStamina;
     }
 
     //MESSAGES
