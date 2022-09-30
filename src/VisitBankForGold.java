@@ -33,4 +33,10 @@ public class VisitBankForGold implements State<Bob> {
         // TODO Auto-generated method stub
 
     }
+
+    @Override
+    public boolean onMessage(Bob c, Message msg) {
+        // TODO Auto-generated method stub
+        return false;
+    }
 }

@@ -117,6 +117,11 @@ public abstract class Character {
     }
 
     public boolean isTired() {
-        return stamina <= 0;
+        return stamina != maxStamina;
+    }
+
+    //MESSAGES
+    public boolean handleMessages(Message msg){
+        return stateMachine.handleMessages(msg);
     }
 }

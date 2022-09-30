@@ -46,4 +46,10 @@ public class EnterMineDigForNugget implements State<Bob> {
     public void exit(Bob bob) {
         System.out.println("Bob digged enough");
     }
+
+    @Override
+    public boolean onMessage(Bob c, Message msg) {
+        // TODO Auto-generated method stub
+        return false;
+    }
 }

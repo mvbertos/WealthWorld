@@ -33,4 +33,10 @@ public class LookAtTheWeather implements State<Billy> {
 
     }
 
+    @Override
+    public boolean onMessage(Billy c, Message msg) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
 }

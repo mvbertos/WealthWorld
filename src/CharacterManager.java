@@ -27,6 +27,6 @@ public class CharacterManager {
     }
 
     public void removeCharacter(Character character) {
-        map.remove(character);
+        map.remove(character.getName());
     }
 }

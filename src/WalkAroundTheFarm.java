@@ -31,4 +31,10 @@ public class WalkAroundTheFarm implements State<Billy> {
         System.out.println("Billy is tired of walking at the farm");
 
     }
+
+    @Override
+    public boolean onMessage(Billy c, Message msg) {
+        // TODO Auto-generated method stub
+        return false;
+    }
 }

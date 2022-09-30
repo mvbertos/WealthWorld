@@ -33,4 +33,15 @@ public class BobGlobalState implements State<Bob> {
 
     }
 
+    @Override
+    public boolean onMessage(Bob c, Message msg) {
+        if (msg.getMessage().compareToIgnoreCase("JobsDone!") == 0) {
+            c.setBillyWorked(true);
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 }

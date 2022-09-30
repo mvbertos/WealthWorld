@@ -9,10 +9,10 @@ public class Main {
         cManager.registerCharacter(bob);
         
         // HERE BOB THE HIS THING
-        // while (true) {
-        // bob.getStateMachine().update();
-        // billy.getStateMachine().update();
-        // Thread.sleep(600);
-        // }
+        while (true) {
+        bob.getStateMachine().update();
+        billy.getStateMachine().update();
+        Thread.sleep(800);
+        }
     }
 }

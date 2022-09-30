@@ -32,4 +32,10 @@ public class QuenchyThirsty implements State<Bob> {
     @Override
     public void exit(Bob character) {
     }
+
+    @Override
+    public boolean onMessage(Bob c, Message msg) {
+        // TODO Auto-generated method stub
+        return false;
+    }
 }

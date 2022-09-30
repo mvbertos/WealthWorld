@@ -1,4 +1,4 @@
-public class StateMachine<NonPlayableCharacter> {
+public class StateMachine<NonPlayableCharacter extends Character> {
     private NonPlayableCharacter myOwner;
     // Define o estado atual:
     private State<NonPlayableCharacter> estadoAtual;
@@ -48,7 +48,7 @@ public class StateMachine<NonPlayableCharacter> {
         if (estadoAtual != null)
             // Invoca o método de saida do estado atual:
             estadoAtual.exit(myOwner);
-            
+
         // Faz a troca de estados:
         estadoAtual = novoEstado;
         // Invoca o metodo de Entrada do novo estado:
@@ -70,6 +70,19 @@ public class StateMachine<NonPlayableCharacter> {
 
     public State<NonPlayableCharacter> getPreviousState() {
         return estadoAnterior;
+    }
+
+    public boolean handleMessages(Message msg) {
+        
+        if (estadoAtual.onMessage(myOwner, msg)) {
+            return true;
+        }
+
+        if (estadoGlobal != null && estadoGlobal.onMessage(myOwner, msg)) {
+            return true;
+        }
+
+        return false;
     }
 
 }

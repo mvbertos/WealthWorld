@@ -31,4 +31,10 @@ public class VisitBathroom implements State<Bob> {
 
     }
 
+    @Override
+    public boolean onMessage(Bob c, Message msg) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
 }
