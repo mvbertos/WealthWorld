@@ -2,6 +2,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public abstract class Character {
+    private String name;
+
     private Bank bank;
 
     private Scanner scn;
@@ -21,7 +23,8 @@ public abstract class Character {
     private int coin;
     private int coinpermine = 1;
 
-    public Character() {
+    public Character(String name) {
+        this.name = name;
         bank = new Bank();
         scn = new Scanner(System.in);
         rnd = new Random();
@@ -29,6 +32,10 @@ public abstract class Character {
     }
 
     // GETTERS
+    public String getName() {
+        return this.name;
+    }
+
     public StateMachine getStateMachine() {
         return stateMachine;
     }
@@ -68,6 +75,7 @@ public abstract class Character {
     public Scanner getScn() {
         return scn;
     }
+
     // COIN
     public void increaseCoinBasedOnBob() {
         increaseCoin(coinpermine);

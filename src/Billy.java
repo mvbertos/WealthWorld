@@ -1,7 +1,6 @@
 public class Billy extends Character {
     public Billy() {
-        super();
+        super("Billy");
         this.getStateMachine().changeState(LookAtTheWeather.getInstance());
     }
-
 }
